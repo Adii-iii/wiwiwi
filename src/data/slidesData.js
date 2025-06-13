@@ -22,7 +22,7 @@ const slidesData = [
     background: "#1e293b",
     items: [
       {
-        label: "Hackathon 1",
+        label: "Hackathon",
         images: [collage+"IMG_20220714_152242.jpg", collage+"PXL_20230609_142127148.jpg", collage+"IMG_20220714_224332.jpg"],
         description: "Our first sleepless hackathon. We survived on coffee and adrenaline."
       },
