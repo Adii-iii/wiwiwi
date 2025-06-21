@@ -71,7 +71,14 @@ const App = () => {
               p: 0,
               opacity: 0.7,
               transition: "opacity 0.2s",
-              "&:hover": { opacity: 1 },
+              "&:hover": {
+                opacity: 1,
+              },
+              "@media (max-width: 640px)": {
+                "&:hover": {
+                  opacity: 0.7, // Keep 70% opacity on hover for mobile
+                },
+              },
             }}
           >
             <img
@@ -100,7 +107,14 @@ const App = () => {
               p: 0,
               opacity: 0.7,
               transition: "opacity 0.2s",
-              "&:hover": { opacity: 1 },
+              "&:hover": {
+                opacity: 1,
+              },
+              "@media (max-width: 640px)": {
+                "&:hover": {
+                  opacity: 0.7, // Keep 70% opacity on hover for mobile
+                },
+              },
             }}
           >
             <img
