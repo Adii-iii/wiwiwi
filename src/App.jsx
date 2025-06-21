@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Slide from "./components/Slide";
 import EnvelopeGrid from "./components/EnvelopeGrid";
 import Modal from "./components/Modal";
@@ -29,6 +29,20 @@ const App = () => {
       setCurrentSlide(currentSlide - 1);
     }
   };
+
+  // Add keyboard navigation for left/right arrow keys
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (modalContent) return; // Don't navigate slides if modal is open
+      if (e.key === "ArrowRight") {
+        nextSlide();
+      } else if (e.key === "ArrowLeft") {
+        prevSlide();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [currentSlide, modalContent]);
 
   return (
     <div className="relative w-screen h-screen bg-gray-900 text-white overflow-hidden">
