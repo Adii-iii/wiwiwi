@@ -55,47 +55,62 @@ const App = () => {
       </AnimatePresence>
 
       {/* Left Arrow */}
-{currentSlide > 0 && (
-  <Box
-    sx={{
-      position: "absolute",
-      top: "50%",
-      left: "16px",
-      transform: "translateY(-50%)",
-      zIndex: 10,
-    }}
-  >
-    <IconButton onClick={prevSlide} sx={{ p: 0 }}>
-      <img
-        src={leftArrow}
-        alt="Previous"
-        style={{ width: "50px", height: "50px", objectFit: "contain" }}
-      />
-    </IconButton>
-  </Box>
-)}
-
+      {currentSlide > 0 && (
+        <Box
+          sx={{
+            position: "absolute",
+            top: "50%",
+            left: "16px",
+            transform: "translateY(-50%)",
+            zIndex: 10,
+          }}
+        >
+          <IconButton
+            onClick={prevSlide}
+            sx={{
+              p: 0,
+              opacity: 0.7,
+              transition: "opacity 0.2s",
+              "&:hover": { opacity: 1 },
+            }}
+          >
+            <img
+              src={leftArrow}
+              alt="Previous"
+              style={{ width: "50px", height: "50px", objectFit: "contain" }}
+            />
+          </IconButton>
+        </Box>
+      )}
 
       {/* Right Arrow */}
       {currentSlide < slidesData.length - 1 && (
-  <Box
-    sx={{
-      position: "absolute",
-      top: "50%",
-      right: "16px",
-      transform: "translateY(-50%)",
-      zIndex: 10,
-    }}
-  >
-    <IconButton onClick={nextSlide} sx={{ p: 0 }}>
-      <img
-        src={rightArrow}
-        alt="Next"
-        style={{ width: "50px", height: "50px", objectFit: "contain" }}
-      />
-    </IconButton>
-  </Box>
-)}
+        <Box
+          sx={{
+            position: "absolute",
+            top: "50%",
+            right: "16px",
+            transform: "translateY(-50%)",
+            zIndex: 10,
+          }}
+        >
+          <IconButton
+            onClick={nextSlide}
+            sx={{
+              p: 0,
+              opacity: 0.7,
+              transition: "opacity 0.2s",
+              "&:hover": { opacity: 1 },
+            }}
+          >
+            <img
+              src={rightArrow}
+              alt="Next"
+              style={{ width: "50px", height: "50px", objectFit: "contain" }}
+            />
+          </IconButton>
+        </Box>
+      )}
 
   <Modal content={modalContent} onClose={() => setModalContent(null)} />
 
