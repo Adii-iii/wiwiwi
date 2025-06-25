@@ -1,6 +1,7 @@
 const collage = import.meta.env.BASE_URL + "/collage/";
 
 const slidesData = [
+  {},
   {
     title: "Farewell, Aditya!",
     content: "Wishing you all the best for your next journey. Here’s a small tribute.",
