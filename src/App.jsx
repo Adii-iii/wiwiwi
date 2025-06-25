@@ -51,6 +51,7 @@ const App = () => {
         key={currentSlide} 
         data={slidesData[currentSlide]} 
         setModalContent={setModalContent}
+        currentSlide={currentSlide} // Pass currentSlide as a prop
         />
       </AnimatePresence>
 

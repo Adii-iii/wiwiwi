@@ -1,14 +1,20 @@
 import React from "react";
 import { motion } from "framer-motion";
 import EnvelopeGrid from "./EnvelopeGrid";
+import title from "../assets/title.mp4";
+import bgVideo from "../assets/bg.mp4"; 
 
-const Slide = ({ data, setModalContent }) => {
+
+const Slide = ({ data, setModalContent, currentSlide }) => {
   // For envelope slides, do NOT center vertically
   // For others, center vertically on small screens only
   const slideClass =
     data.type === "envelopes"
       ? "absolute inset-0 flex flex-col items-center text-center p-8 overflow-y-auto min-h-0"
       : "absolute inset-0 flex flex-col items-center text-center p-8 overflow-y-auto min-h-0 justify-center";
+
+  // Use title.mp4 for the first slide, bg.mp4 for others
+  const videoSrc = currentSlide === 0 ? title : bgVideo;
 
   return (
     <motion.div
@@ -19,7 +25,18 @@ const Slide = ({ data, setModalContent }) => {
       exit={{ opacity: 0, x: -50 }}
       transition={{ duration: 0.05 }}
     >
-      <div className="w-full flex flex-col items-center">
+
+      {/* Video Background */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover z-0"
+        src={videoSrc} 
+      />
+
+      <div className="z-10 w-full flex flex-col items-center">
         {/* 📦 Envelope Slide */}
         {data.type === "envelopes" && (
           <EnvelopeGrid blocks={data.items} onBlockClick={setModalContent} />
