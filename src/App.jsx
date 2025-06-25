@@ -45,7 +45,7 @@ const App = () => {
   }, [currentSlide, modalContent]);
 
   return (
-    <div className="relative w-screen h-screen bg-gray-900 text-white overflow-hidden">
+    <div className="relative w-screen h-screen bg-gray-900 text-black overflow-hidden">
       <AnimatePresence mode="wait">
         <Slide 
         key={currentSlide} 
