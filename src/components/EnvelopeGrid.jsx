@@ -1,6 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
-import fileIcon from "../assets/file.png"; // Adjust path if needed
+// import fileIcon from "../assets/file.png"; // Adjust path if needed
+// import fileIcon from "../assets/envelope.mp4"; 
+
+import fileIcon from "../assets/envelope-ezgif.com-gif-maker.gif"; 
+// import fileIcon from "../assets/envelope.mp4"; 
+
 
 const shakeTransition = {
   repeat: Infinity,
@@ -19,13 +24,26 @@ const EnvelopeGrid = ({ blocks, onBlockClick }) => {
           onClick={() => onBlockClick(block)}
         >
           <div className="aspect-square w-64 bg-white/10 rounded-2xl flex items-center justify-center">
-            <motion.img
+            {/* <motion.img
               src={fileIcon}
               alt="File Icon"
               className="w-40 h-40 object-contain"
               animate={{ rotate: [0, 15, -15, 0] }}
               transition={shakeTransition}
-            />
+            /> */}
+
+            <motion.div
+              className="w-40 h-40 flex items-center justify-center"
+              // animate={{ rotate: [0, 15, -15, 0] }}
+              // transition={shakeTransition}
+            >
+              <img
+                src={fileIcon}
+                alt="File Icon"
+                className="w-40 h-40 object-contain"
+                draggable={false}
+              />
+            </motion.div>
           </div>
           <p className="mt-6 text-lg text-center">{block.label}</p>
         </div>
