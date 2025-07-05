@@ -19,7 +19,7 @@ const Slide = ({ data, setModalContent, currentSlide }) => {
   return (
     <motion.div
       className={slideClass}
-      style={{ background: data.background || "#1a202c" }}
+      style={{ background: data.background || "#D8E0EF" }}
       initial={{ opacity: 0, x: 50 }}
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: -50 }}
