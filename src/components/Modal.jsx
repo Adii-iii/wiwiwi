@@ -26,10 +26,10 @@ const Modal = ({ content, onClose }) => {
   return (
     <div
       ref={backdropRef}
-      className="fixed inset-0 bg-black/60 flex items-center justify-center z-50"
+      className="fixed inset-0 bg-black/60 flex justify-center items-start z-50 overflow-y-auto"
       onClick={handleBackdropClick}
     >
-      <div className="bg-white text-black rounded-lg p-6 max-w-lg w-full flex flex-col items-center">
+      <div className="bg-white text-black rounded-lg p-6 max-w-lg w-full flex flex-col items-center mt-8">
         <h2 className="text-xl font-bold mb-2">{content.label}</h2>
         {content.description && (
           <p className="mb-2 italic text-gray-700">{content.description}</p>
@@ -39,9 +39,9 @@ const Modal = ({ content, onClose }) => {
           <div
             className="w-full"
             style={{
-              columns: 2,
-              columnGap: "0.75rem",
-              marginBottom: "1rem",
+              columns: 1,
+              columnGap: "0rem",
+              marginBottom: "0rem",
             }}
           >
             {content.images.map((img, idx) => (
@@ -49,11 +49,12 @@ const Modal = ({ content, onClose }) => {
                 key={idx}
                 src={img}
                 alt={`Memory ${idx}`}
-                className="mb-3 rounded-xl w-full"
+                className="mb-3 rounded-xl"
                 style={{
+                  width: "82%",
                   display: "inline-block",
-                  width: "100%",
                   breakInside: "avoid",
+                  marginLeft: "9%",
                 }}
               />
             ))}
