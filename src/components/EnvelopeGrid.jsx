@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 // import fileIcon from "../assets/file.png"; // Adjust path if needed
 // import fileIcon from "../assets/envelope.mp4"; 
 
-import fileIcon from "../assets/envelope-ezgif.com-gif-maker.gif"; 
+import fileIcon from "../assets/envelope.gif"; 
 // import fileIcon from "../assets/envelope.mp4"; 
 
 
