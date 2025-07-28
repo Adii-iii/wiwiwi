@@ -95,7 +95,13 @@ const slidesData = [
     background: "#e0ecffff"
   },
 
-  {},
+  {
+    
+    font: [
+    collage + "notes final.png"
+  ],
+    background: "#e0ecffff"
+  },
 
   {
     
