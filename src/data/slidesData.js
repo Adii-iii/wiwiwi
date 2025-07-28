@@ -1,26 +1,28 @@
 const collage = import.meta.env.BASE_URL + "/collage/";
+import and_then from "../assets/and_then.gif"; 
+import farewell from "../assets/farewell.gif"; 
 
 const slidesData = [
   {},
-  {
-    title: "Farewell, Aditya!",
-    content: "Wishing you all the best for your next journey. Here’s a small tribute.",
-    background: "#1e293b"
-  },
-  {
-    title: "Memory Lane",
-    content: "Remember those endless hackathons and late-night guitar sessions?",
-    background: "#1e293b"
-  },
-  {
-    title: "A Short Story",
-    content: "From helping others during exams to leading our club, you’ve been a true team player.",
-    background: "#1e293b"
-  },
+  // {
+  //   title: "Farewell, Aditya!",
+  //   content: "Wishing you all the best for your next journey. Here’s a small tribute.",
+  //   background: "#1e293b"
+  // },
+  // {
+  //   title: "Memory Lane",
+  //   content: "Remember those endless hackathons and late-night guitar sessions?",
+  //   background: "#1e293b"
+  // },
+  // {
+  //   title: "A Short Story",
+  //   content: "From helping others during exams to leading our club, you’ve been a true team player.",
+  //   background: "#1e293b"
+  // },
 
   {
     type: "envelopes",
-    background: "#1e293b",
+    background: "#e0ecffff",
     items: [
       {
         label: "oct 2023",
@@ -56,10 +58,52 @@ const slidesData = [
   },
 
   {
-    title: "Till We Meet Again",
-    content: "You leave behind fond memories and a legacy. See you soon!",
-    background: "#1e293b"
-  }
+    // title: "The day it all changed...",
+    // content: "",
+    font: [
+    and_then
+  ],
+    background: "#e0ecffff"
+  },
+
+  {
+    type: "single_envelope",
+    background: "#e0ecffff",
+    items: [
+      {
+        label: "oct 2024",
+        images: [collage+"special panel final strip copy.jpg"],
+        // description: "Our first sleepless hackathon. We survived on coffee and adrenaline."
+      },
+    ]
+  },
+  
+  {
+    // title: "Farewell...",
+    // content: "",
+    images: [
+    farewell
+  ],
+    background: "#e0ecffff"
+  },
+
+  {
+    
+    images: [
+    collage + "special panel.jpg"
+  ],
+    background: "#e0ecffff"
+  },
+
+  {},
+
+  {
+    
+    font: [
+    collage + "credits.jpg"
+  ],
+    background: "#e0ecffff"
+  },
 ];
 
 export default slidesData;

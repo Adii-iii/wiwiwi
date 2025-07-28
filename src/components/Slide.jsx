@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import EnvelopeGrid from "./EnvelopeGrid";
+import SEnvelopeGrid from "./SingleEnvelopeGrid";
 import title from "../assets/title.mp4";
 import bgVideo from "../assets/bg.mp4"; 
 
@@ -41,6 +42,32 @@ const Slide = ({ data, setModalContent, currentSlide }) => {
         {data.type === "envelopes" && (
           <EnvelopeGrid blocks={data.items} onBlockClick={setModalContent} />
         )}
+
+        {data.type === "single_envelope" && (
+          <SEnvelopeGrid blocks={data.items} onBlockClick={setModalContent} />
+        )}
+
+        {/* 🖼️ Image Gallery */}
+        {data.images && Array.isArray(data.images) && (
+          <div className="w-full flex flex-wrap justify-center gap-4 mt-8">
+            {data.images.map((img, idx) => (
+              <img
+                key={idx}
+                src={img}
+                alt={`Slide Image ${idx}`}
+                style={{
+                  width: "28%",
+                  // maxWidth: "700px",
+                  // maxHeight: "400px",
+                  borderRadius: "1rem",
+                  cursor: "zoom-in"
+                }}
+                onClick={() => setZoomImg(img)}
+              />
+            ))}
+          </div>
+        )}
+
 
         {/* 📝 Default Text Slide */}
         {!data.type && (
