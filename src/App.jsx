@@ -10,6 +10,7 @@ import { Box } from "@mui/material";
 
 import leftArrow from "./assets/left-arrow.png";
 import rightArrow from "./assets/right-arrow.png";
+import Arrow from "./assets/arrow.gif";
 
 
 console.log("App rendered");
@@ -83,9 +84,9 @@ const App = () => {
             }}
           >
             <img
-              src={leftArrow}
+              src={Arrow}
               alt="Previous"
-              style={{ width: "50px", height: "50px", objectFit: "contain" }}
+              style={{ width: "75px", height: "75px", objectFit: "contain" }}
             />
           </IconButton>
         </Box>
@@ -119,9 +120,14 @@ const App = () => {
             }}
           >
             <img
-              src={rightArrow}
+              src={Arrow}
               alt="Next"
-              style={{ width: "50px", height: "50px", objectFit: "contain" }}
+              style={{
+                width: "75px",
+                height: "75px",
+                objectFit: "contain",
+                transform: "scaleX(-1)", // <-- This mirrors vertically
+              }}
             />
           </IconButton>
         </Box>
