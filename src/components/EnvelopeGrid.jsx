@@ -45,7 +45,12 @@ const EnvelopeGrid = ({ blocks, onBlockClick }) => {
               />
             </motion.div>
           </div>
-          <p className="mt-6 text-lg text-center">{block.label}</p>
+          <p
+            className="mt-6 text-lg text-center"
+            style={{ fontFamily: "'Manga Temple', sans-serif" }}
+          >
+            {block.label}
+          </p>
         </div>
       ))}
     </div>

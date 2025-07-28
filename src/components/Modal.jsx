@@ -30,10 +30,10 @@ const Modal = ({ content, onClose }) => {
       onClick={handleBackdropClick}
     >
       <div className="bg-white text-black rounded-lg p-6 max-w-lg w-full flex flex-col items-center mt-8">
-        <h2 className="text-xl font-bold mb-2">{content.label}</h2>
-        {content.description && (
+        <h2 className="text-xl font-bold mb-2" style={{ fontFamily: "'Manga TempleI', sans-serif" }}>{content.label}</h2>
+        {/* {content.description && (
           <p className="mb-2 italic text-gray-700">{content.description}</p>
-        )}
+        )} */}
 
         {content.images && (
           <div

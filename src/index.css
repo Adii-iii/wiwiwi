@@ -78,3 +78,24 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+@font-face {
+  font-family: 'Manga Temple';
+  src: url('./assets/fonts/manga_temple/mangat.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Manga TempleI';
+  src: url('./assets/fonts/manga_temple/mangati.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Manga TempleB';
+  src: url('./assets/fonts/manga_temple/mangatb.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
