@@ -7,6 +7,8 @@ import bgVideo from "../assets/bg.mp4";
 
 
 const Slide = ({ data, setModalContent, currentSlide }) => {
+  const [zoomImg, setZoomImg] = React.useState(null);
+
   // For envelope slides, do NOT center vertically
   // For others, center vertically on small screens only
   const slideClass =
@@ -16,6 +18,15 @@ const Slide = ({ data, setModalContent, currentSlide }) => {
 
   // Use title.mp4 for the first slide, bg.mp4 for others
   const videoSrc = currentSlide === 0 ? title : bgVideo;
+
+  React.useEffect(() => {
+    if (!zoomImg) return;
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") setZoomImg(null);
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [zoomImg]);
 
   return (
     <motion.div
@@ -68,6 +79,24 @@ const Slide = ({ data, setModalContent, currentSlide }) => {
           </div>
         )}
 
+        {/* 🖼️ Fonts */}
+        {data.font && Array.isArray(data.font) && (
+          <div className="w-full flex flex-wrap justify-center gap-4 mt-8">
+            {data.font.map((img, idx) => (
+              <img
+                key={idx}
+                src={img}
+                alt={`Slide Image ${idx}`}
+                style={{
+                  width: "75%",        // or any px value
+                  // maxWidth: "800px",   // maximum width
+                  // maxHeight: "4000px",  // maximum height
+                  borderRadius: "1rem" // rounded corners
+                }}
+              />
+            ))}
+          </div>
+        )}
 
         {/* 📝 Default Text Slide */}
         {!data.type && (
@@ -75,6 +104,33 @@ const Slide = ({ data, setModalContent, currentSlide }) => {
             <h1 className="text-4xl font-bold mb-4">{data.title}</h1>
             <p className="text-lg max-w-2xl">{data.content}</p>
           </>
+        )}
+
+        {/* Modal for zoomed image */}
+        {zoomImg && (
+          <div
+            className="fixed inset-0 bg-black/80 flex items-start justify-center z-50"
+            onClick={() => setZoomImg(null)}
+            style={{ cursor: "zoom-out" }}
+          >
+            <div
+              className="max-h-[98vh] max-w-[98vw] overflow-auto flex items-start justify-center p-4"
+              onClick={e => e.stopPropagation()}
+            >
+              <img
+                src={zoomImg}
+                alt="Zoomed"
+                style={{
+                  maxHeight: "195vh",
+                  maxWidth: "195vw",
+                  borderRadius: "1rem",
+                  boxShadow: "0 0 24px #0008",
+                  cursor: "zoom-out"
+                }}
+                onClick={() => setZoomImg(null)}
+              />
+            </div>
+          </div>
         )}
       </div>
     </motion.div>
