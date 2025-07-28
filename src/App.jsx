@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Slide from "./components/Slide";
 import EnvelopeGrid from "./components/EnvelopeGrid";
 import Modal from "./components/Modal";
@@ -11,6 +11,7 @@ import { Box } from "@mui/material";
 import leftArrow from "./assets/left-arrow.png";
 import rightArrow from "./assets/right-arrow.png";
 import Arrow from "./assets/arrow.gif";
+import bgMusic from "./assets/Stardew.mp3";
 
 
 console.log("App rendered");
@@ -18,6 +19,8 @@ console.log("App rendered");
 const App = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [modalContent, setModalContent] = useState(null);
+  const [musicStarted, setMusicStarted] = useState(false);
+  const audioRef = useRef(null);
 
   const nextSlide = () => {
     if (currentSlide < slidesData.length - 1) {
@@ -45,8 +48,23 @@ const App = () => {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [currentSlide, modalContent]);
 
+  const startMusic = () => {
+    audioRef.current.play();
+    setMusicStarted(true);
+  };
+
   return (
-    <div className="relative w-screen h-screen bg-gray-900 text-black overflow-hidden">
+    <div className="relative w-screen h-screen bg-white text-black overflow-hidden">
+      <audio ref={audioRef} src={bgMusic} loop hidden />
+      {!musicStarted && (
+        <button
+          onClick={startMusic}
+          className="fixed top-4 left-1/2 -translate-x-1/2 z-50 bg-green text-white px-4 py-2 rounded shadow"
+        >
+          Play Music
+        </button>
+      )}
+
       <AnimatePresence mode="wait">
         <Slide 
         key={currentSlide} 
